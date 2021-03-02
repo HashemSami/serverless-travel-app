@@ -1,0 +1,15 @@
+@import "variables";
+#head {
+  grid-area: head;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2em;
+
+  #title {
+    font-weight: bold;
+    color: $title;
+  }
+}

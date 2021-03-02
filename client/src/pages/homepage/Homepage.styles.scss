@@ -1,0 +1,23 @@
+@import '../../styles/variables';
+
+main {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+    'form'
+    'note'
+    'result';
+  row-gap: 15px;
+  grid-area: main;
+
+  @media (min-width: $breakpoint) {
+    font-size: 25px;
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    grid-template-areas:
+      'note note note'
+      'result result form'
+      'result result .';
+    row-gap: 15px;
+  }
+}

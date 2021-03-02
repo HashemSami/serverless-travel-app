@@ -1,0 +1,7 @@
+@import '../../styles/variables';
+
+#main-note {
+  grid-area: note;
+  margin: 0;
+  color: $dark-blue;
+}

@@ -1,0 +1,11 @@
+#footer {
+  grid-area: foot;
+  #docs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    a {
+      display: block;
+    }
+  }
+}
