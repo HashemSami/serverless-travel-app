@@ -18,10 +18,20 @@ const UploadImagePage = ({ auth, trips, location, setMainNote }) => {
     return (
       <Fragment>
         <div id="result">
-          <TripCard trips={tripInfo} auth={auth} setMainNote={setMainNote} />
+          <TripCard
+            trips={tripInfo}
+            auth={auth}
+            setMainNote={setMainNote}
+            forImageUpdate={true}
+          />
         </div>
 
-        <ImageUpload auth={auth} tripId={tripId} setMainNote={setMainNote} />
+        <ImageUpload
+          auth={auth}
+          tripId={tripId}
+          setMainNote={setMainNote}
+          setTripInfo={setTripInfo}
+        />
       </Fragment>
     );
   }

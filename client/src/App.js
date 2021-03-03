@@ -12,6 +12,7 @@ function App(props) {
   console.log('auth value', props);
   const [trips, setTrips] = useState([]);
   const [mainNote, setMainNote] = useState('');
+
   return (
     <div className="container">
       <NavBar auth={props.auth} />

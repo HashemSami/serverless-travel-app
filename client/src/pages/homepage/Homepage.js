@@ -5,9 +5,16 @@ import { getTrips } from '../../api/tripsAPI';
 import Form from '../../components/form/Form';
 import Trips from '../../components/trips/Trips';
 
-const Homepage = ({ auth, trips, setTrips, history, setMainNote }) => {
+const Homepage = ({
+  auth,
+  trips,
+  setTrips,
+  history,
+  mainNote,
+  setMainNote
+}) => {
   // const [trips, setTrips] = useState([]);
-  const [newTrip, setNewTrip] = useState();
+  const [newTrip, setNewTrip] = useState(false);
   console.log(auth);
   // console.log(history);
 
@@ -34,6 +41,7 @@ const Homepage = ({ auth, trips, setTrips, history, setMainNote }) => {
         setMainNote={setMainNote}
         history={history}
         auth={auth}
+        setNewTrip={setNewTrip}
       />
     </Fragment>
   );

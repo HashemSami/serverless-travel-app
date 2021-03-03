@@ -37,15 +37,7 @@ const TripCard = ({
       return (
         <div id="card" key={tripId}>
           <div id="photo">
-            {!forImageUpdate ? (
-              <img alt={tags} src={imageURL} />
-            ) : (
-              <ImageUpload
-                auth={auth}
-                tripId={tripId}
-                setMainNote={setMainNote}
-              />
-            )}
+            <img alt="Card Image" src={imageURL} />
           </div>
           <div id="info">
             <div id="city-info-with-button">

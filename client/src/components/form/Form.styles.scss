@@ -29,7 +29,28 @@
     column-gap: 15px;
 
     #ImageUpload {
-      @include input-box;
+      // @include input-box;
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas:
+        '. image-input-label .'
+        '. file-input .'
+        '. file-submit .';
+      justify-content: center;
+
+      lable {
+        grid-area: image-input-label;
+      }
+
+      #file-input {
+        grid-area: file-input;
+        @include input-box;
+      }
+
+      button {
+        grid-area: file-submit;
+      }
     }
 
     #travel-location {

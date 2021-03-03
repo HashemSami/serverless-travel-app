@@ -3,11 +3,14 @@ import { getUploadUrl, uploadFile } from '../../api/tripsAPI';
 
 const ImageUpload = ({ auth, tripId, setMainNote }) => {
   const [file, setFile] = useState('');
+
   const handleFileChange = (e) => {
     const { files } = e.target;
     if (!files) return;
 
-    setFile(files);
+    // console.log(files[0]);
+
+    setFile(files[0]);
   };
 
   const handleUploadImage = async (e) => {
@@ -24,7 +27,7 @@ const ImageUpload = ({ auth, tripId, setMainNote }) => {
 
       await uploadFile(uploadUrl, file);
 
-      setMainNote('File was uploaded');
+      setMainNote('File was uploaded, you can go back to home screen.');
     } catch (e) {
       setMainNote(`Could not upload file, ${e.message}`);
     }
@@ -33,16 +36,18 @@ const ImageUpload = ({ auth, tripId, setMainNote }) => {
   return (
     <div id="usrform">
       <form onSubmit={handleUploadImage}>
-        <label>Select file</label>
-        <input
-          id="ImageUpload"
-          type="file"
-          accept="image/*"
-          placeholder="Uploaded Image"
-          onChange={handleFileChange}
-        />
+        <div id="image-upload">
+          <label>Select file:</label>
+          <input
+            id="file-input"
+            type="file"
+            accept="image/*"
+            placeholder="Uploaded Image"
+            onChange={handleFileChange}
+          />
 
-        <button type="submit">Upload</button>
+          <button type="submit">Upload</button>
+        </div>
       </form>
     </div>
   );

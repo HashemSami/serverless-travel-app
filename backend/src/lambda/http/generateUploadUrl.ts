@@ -8,12 +8,15 @@ import { cors } from 'middy/middlewares';
 import * as uuid from 'uuid';
 
 import * as AWS from 'aws-sdk';
+import * as AWSXRay from 'aws-xray-sdk';
 
 import { getUserId } from '../utils';
 
 import { createLogger } from '../../utils/logger';
 
-const docClient = new AWS.DynamoDB.DocumentClient();
+const XAWS = AWSXRay.captureAWS(AWS);
+
+const docClient = new XAWS.DynamoDB.DocumentClient();
 
 const logger = createLogger('ceating trip image');
 
@@ -36,7 +39,7 @@ export const handler = middy(
 
     const url = getUploadUrl(imageId);
 
-    logger.info('generating Upload url', url);
+    logger.info('generated Upload url', url);
 
     return {
       statusCode: 201,
@@ -63,9 +66,9 @@ async function createImage(
       TableName: tripsTable,
       Key: {
         userId: getUserId(event),
-        todoId: tripId
+        tripId: tripId
       },
-      UpdateExpression: 'set attachmentUrl = :r',
+      UpdateExpression: 'set imageURL = :r',
       ExpressionAttributeValues: {
         ':r': `https://${bucketName}.s3.amazonaws.com/${imageId}`
       }

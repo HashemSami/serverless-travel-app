@@ -51,7 +51,7 @@ const Form = ({ setMainNote, auth, setNewTrip }) => {
 
       const newTripItem = await createTrip(idToken, newTrip);
 
-      setNewTrip(newTripItem);
+      setNewTrip((t) => (t ? false : true));
 
       setMainNote('Done, you can now add another trip to your list.');
 
