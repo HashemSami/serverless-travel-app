@@ -6,8 +6,8 @@ import TripCard from './trips-components/TripCard';
 
 const Trips = ({ trips, setMainNote, history, auth, setNewTrip }) => {
   if (!trips || !trips.length) {
-    setMainNote('Please fill the form to add your trips');
-    return '';
+    // setMainNote('Please fill the form to add your trips');
+    return <h3>Please fill the form to add your trips</h3>;
   }
 
   const handleUpdateImage = (tripId, userId) => {
@@ -28,7 +28,6 @@ const Trips = ({ trips, setMainNote, history, auth, setNewTrip }) => {
     }
   };
 
-  console.log('trips', trips);
   return (
     <section id="result">
       <TripCard

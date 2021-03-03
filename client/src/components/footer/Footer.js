@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './Footer.styles.scss';
 
 const Footer = () => {

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './Note.styles.scss';
 
 const Note = (props) => {

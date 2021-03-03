@@ -1,11 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './NavBar.styles.scss';
 import { Link } from 'react-router-dom';
 
-import AuthedContext from '../../auth/AuthedContext';
-
 const NavBar = (props) => {
-  console.log(props.auth.isAuthenticated());
   return (
     <div className="head">
       <Link className="logo-container" to="/">

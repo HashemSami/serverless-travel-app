@@ -1,9 +1,8 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React from 'react';
 import Auth from './auth/Auth';
 import { Router, Route } from 'react-router-dom';
 import * as browserHistory from 'history';
 import App from './App';
-import AuthedContext from './auth/AuthedContext';
 
 const history = browserHistory.createBrowserHistory();
 

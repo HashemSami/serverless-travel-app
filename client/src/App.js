@@ -8,7 +8,7 @@ import Footer from './components/footer/Footer';
 import UploadImagePage from './pages/upload-image-page/UploadImagePage';
 
 function App(props) {
-  console.log('auth value', props);
+  // console.log('auth value', props);
   const [trips, setTrips] = useState([]);
 
   return (

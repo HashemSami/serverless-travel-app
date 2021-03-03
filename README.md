@@ -9,8 +9,6 @@ It is a travel planner app that obtains a desired trip location & date from the 
 
 This project is using 4 external APIs, each one is reliant on another to make the app work. As one API will be required to get data from another API.
 
-You can use the form to enter the location you are traveling to and the date you are leaving, then you will get a predicted weather forecast.
-
 The APIs used are:
 
 - Integrate the [REST Countries API](https://restcountries.eu/) to pull in information about the country being visited.

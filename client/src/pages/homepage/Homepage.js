@@ -6,18 +6,14 @@ import Form from '../../components/form/Form';
 import Trips from '../../components/trips/Trips';
 
 const Homepage = ({ auth, trips, setTrips, history }) => {
-  // const [trips, setTrips] = useState([]);
   const [newTrip, setNewTrip] = useState(false);
   const [mainNote, setMainNote] = useState('');
-  console.log(auth);
-  // console.log(history);
 
   useEffect(() => {
     if (auth.isAuthenticated()) {
       const getTripsData = async () => {
         const tripsData = await getTrips(auth.getIdToken());
         setTrips(tripsData);
-        console.log(tripsData);
       };
       getTripsData();
     }

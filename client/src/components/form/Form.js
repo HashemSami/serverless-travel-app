@@ -8,7 +8,7 @@ import DateInput from './form-components/DateInput';
 import { createTrip } from '../../api/tripsAPI';
 
 const Form = ({ setMainNote, auth, setNewTrip }) => {
-  const [regions, setRegions] = useState([
+  const [regions] = useState([
     'Africa',
     'Americas',
     'Asia',
@@ -49,7 +49,7 @@ const Form = ({ setMainNote, auth, setNewTrip }) => {
 
       setNote('Getting your trip data...');
 
-      const newTripItem = await createTrip(idToken, newTrip);
+      await createTrip(idToken, newTrip);
 
       setNewTrip((t) => (t ? false : true));
 
