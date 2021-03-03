@@ -1,20 +1,14 @@
-import React, { useState, useEffect, useContext, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import './Homepage.styles.scss';
-import { Link, Route, Router, Switch } from 'react-router-dom';
 import { getTrips } from '../../api/tripsAPI';
+import Note from '../../components/note/Note';
 import Form from '../../components/form/Form';
 import Trips from '../../components/trips/Trips';
 
-const Homepage = ({
-  auth,
-  trips,
-  setTrips,
-  history,
-  mainNote,
-  setMainNote
-}) => {
+const Homepage = ({ auth, trips, setTrips, history }) => {
   // const [trips, setTrips] = useState([]);
   const [newTrip, setNewTrip] = useState(false);
+  const [mainNote, setMainNote] = useState('');
   console.log(auth);
   // console.log(history);
 
@@ -35,14 +29,17 @@ const Homepage = ({
 
   return (
     <Fragment>
-      <Form setMainNote={setMainNote} auth={auth} setNewTrip={setNewTrip} />
-      <Trips
-        trips={trips}
-        setMainNote={setMainNote}
-        history={history}
-        auth={auth}
-        setNewTrip={setNewTrip}
-      />
+      <main>
+        <Note mainNote={mainNote} setMainNote={setMainNote} />
+        <Form setMainNote={setMainNote} auth={auth} setNewTrip={setNewTrip} />
+        <Trips
+          trips={trips}
+          setMainNote={setMainNote}
+          history={history}
+          auth={auth}
+          setNewTrip={setNewTrip}
+        />
+      </main>
     </Fragment>
   );
 };

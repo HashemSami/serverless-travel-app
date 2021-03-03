@@ -1,7 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import TripButton from './TripButton';
-import ImageUpload from '../../image-upload/ImageUpload';
 import { calculateRemainingDays } from '../../../utils/helperFunctions';
 
 import * as icons from '../../../icons';
@@ -10,16 +9,13 @@ const TripCard = ({
   trips,
   handleUpdateImage,
   handleDeleteCard,
-  setMainNote,
-  auth,
   forImageUpdate = false
 }) => {
   const printTrips = () => {
-    return trips.map((trip) => {
+    return trips.map((trip, i) => {
       const {
         userId,
         tripId,
-        region,
         country,
         city,
         countryInfo,
@@ -29,15 +25,14 @@ const TripCard = ({
         max_temp,
         min_temp,
         weather,
-        imageURL,
-        tags
+        imageURL
       } = trip;
       const remainingDays = calculateRemainingDays(travelDate);
 
       return (
         <div id="card" key={tripId}>
           <div id="photo">
-            <img alt="Card Image" src={imageURL} />
+            <img alt={`${city} ${i}`} src={imageURL} />
           </div>
           <div id="info">
             <div id="city-info-with-button">
@@ -92,33 +87,41 @@ const TripCard = ({
             </div>
             <hr />
             <table>
-              <tr>
-                <th>Longitude</th>
-                <th>Latitude</th>
-              </tr>
-              <tr>
-                <td>
-                  <span>{longitude}</span>
-                </td>
-                <td>
-                  <span>{latitude}</span>
-                </td>
-              </tr>
+              <thead>
+                <tr>
+                  <th>Longitude</th>
+                  <th>Latitude</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span>{longitude}</span>
+                  </td>
+                  <td>
+                    <span>{latitude}</span>
+                  </td>
+                </tr>
+              </tbody>
             </table>
 
             <table>
-              <tr>
-                <th>Max temp</th>
-                <th>Min temp</th>
-              </tr>
-              <tr>
-                <td>
-                  <span>{max_temp} &#8451;</span>
-                </td>
-                <td>
-                  <span>{min_temp} &#8451;</span>
-                </td>
-              </tr>
+              <thead>
+                <tr>
+                  <th>Max temp</th>
+                  <th>Min temp</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span>{max_temp} &#8451;</span>
+                  </td>
+                  <td>
+                    <span>{min_temp} &#8451;</span>
+                  </td>
+                </tr>
+              </tbody>
             </table>
             <hr />
             <p>Weather forecast:</p>

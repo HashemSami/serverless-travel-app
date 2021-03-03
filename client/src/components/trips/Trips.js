@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './Trips.styles.scss';
 import { deleteTrip } from '../../api/tripsAPI';
 
@@ -35,8 +35,6 @@ const Trips = ({ trips, setMainNote, history, auth, setNewTrip }) => {
         trips={trips}
         handleUpdateImage={handleUpdateImage}
         handleDeleteCard={handleDeleteCard}
-        setMainNote={setMainNote}
-        auth={auth}
       />
     </section>
   );
